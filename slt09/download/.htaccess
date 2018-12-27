@@ -1,0 +1,8 @@
+AuthUserFile /home/htchen/.htpasswd 
+AuthGroupFile /def/null
+AuthType Basic
+AuthName "Secured Files for Download"
+<Limit GET>
+Require user slt09
+</Limit>
+

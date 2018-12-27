@@ -1,0 +1,55 @@
+<HTML>
+<link href="srs.css" rel="stylesheet" type="text/css">
+<HEAD>
+	<TITLE>A Square-Root Sampling Approach to Fast Histogram-Based Search</TITLE>
+</HEAD>
+<BODY>
+<div class="body" align="justify" style="padding:1em; width:740px; ">
+<div align="center">
+<h2>
+	A Square-Root Sampling Approach to Fast Histogram-Based Search
+</h2>
+<h5>
+<a href="http://www.stanford.edu/~huangwei/">Huang-Wei Chang</a> &nbsp;&nbsp; 
+<a href="http://www.cs.nthu.edu.tw/~htchen">Hwann-Tzong Chen</a>
+</h5>
+</div>
+<br />
+<br />
+
+<div>
+<dl>
+<dt>
+<b>Abstract</b>
+</dt>
+<dd>
+	We present an efficient pixel-sampling technique for histogram-based search. Given a template image as a query, a typical histogram-based algorithm aims to find the location of the target in another large test image, by evaluating a similarity measure for comparing the feature histogram of the template with that of each possible subwindow in the test image. The computational cost would be high if each subwindow needs to compute its histogram and evaluate the similarity measure. In this paper, we adopt the probability-product kernels as the similarity measures, and show that the computation of histograms and the evaluation of the kernel-based similarities can be integrated through a sampling approach.  Specifically, we present a square-root sampling method to avoid the computation of histograms, and meanwhile, reduce the number of pixels required for evaluating the similarity measure. The proposed approximation algorithm is time- and memory-efficient. The time complexity of computing the similarity for each subwindow is $O(1)$. The memory requirement of our algorithm is not in proportion to the size of the template or the number of histogram bins, which allows the use of more distinctive image representations for better search accuracy.
+</dd>
+</dl>
+   
+<div>
+<dl>
+<dt>
+<a name="paper"></a>
+<b>Paper</b>
+</dt>
+<dd>Huang-Wei Chang, Hwann-Tzong Chen: <a href="srs.pdf">A Square-Root Sampling Approach to Fast Histogram-Based Search</a>. CVPR 2010. 
+</dd>
+</dl>
+
+
+<dl>
+<dt>
+<b>Code</b>
+</dt>
+<dd><a href="srs.zip">Download</a></dd>
+</dl>
+</div>
+
+<hr>
+Last updated: 05 May 2010
+
+</div>
+
+</BODY>
+</HTML>

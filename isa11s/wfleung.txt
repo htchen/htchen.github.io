@@ -1,0 +1,49 @@
+Title: Program Entanglement, Feature Interaction and the Feature Language Extensions
+
+Speaker: Wu-Hon F. Leung
+   Computer Science Department, Illinois Institute of Technology, Chicago, IL 60616, USA
+   leung@iit.edu
+
+
+Abstract:
+Two problems are fundamental to the difficulty of developing large
+scale high confidence software: first, software verification relies on
+costly and unreliable testing; second, adding new features to the software
+typically requires the programmers to go through a laborious and error prone
+process of changing existing code. The Feature Language Extensions (FLX) is
+a set of programming language constructs designed to overcome these two
+problems. In this talk, we discuss its solution to the second problem.
+
+We call the second problem the program entanglement problem because when
+features are implemented by changing the code of other features, the
+programs of these features entangle in the same reusable program unit of the
+programming language, making them also difficult to be verified, maintained
+and reused. With existing general purpose programming languages, this
+problem is inevitable under very common conditions including for those
+applications that require exception handling features.
+
+In this talk, we will discuss the requirements that must be met to solve the
+program entanglement problem, and the manner in which FLX meets these
+requirements including a method to design and develop software. The
+discussion will be illustrated by examples from applications that are
+implemented using a research version of FLX to Java compiler. 
+
+
+Bio: 
+Dr Francis Leung is an IEEE Fellow cited for his contributions to
+operating systems, protocols, and programming methods supporting the
+development of distributed systems and multimedia communication
+applications. He holds 14 patents in these areas including the original
+patent on remote procedure calls. He received his Ph.D. in Computer Science
+from the University of California, Berkeley.
+
+Dr Leung has more than 20 years' experience in the telecommunications
+industry and in large-scale software development. He managed many successful
+research and development projects, at Motorola and Bell Laboratories, on
+cellular infrastructure architecture, interactive video server, electronic
+switching system software, multimedia communication protocols, ATM
+technology and application oriented languages. As an example, his group
+developed the switching software for the first field trial of packetized
+voice in the public switched network; they were also the first to
+demonstrate multimedia conferencing in a packet switching network. He is now
+with the faculty of the computer science department of IIT. 

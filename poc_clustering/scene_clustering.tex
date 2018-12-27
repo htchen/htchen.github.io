@@ -1,0 +1,340 @@
+\documentclass[conference]{IEEEtran}
+%\documentclass[10pt,twocolumn,letterpaper]{article}
+%\usepackage{spconf,amsmath,graphicx}
+\usepackage[pdftex]{graphicx}
+\usepackage[cmex10]{amsmath}
+
+%
+%\usepackage[dvips, bookmarks, colorlinks=false, pdftitle={}, pdfauthor={}, pdfsubject={}, pdfkeywords={}]{hyperref}
+
+% Example definitions.
+% --------------------
+\def\x{{\mathbf x}}
+\def\L{{\cal L}}
+
+\usepackage{xspace}
+% Add a period to the end of an abbreviation unless there's one
+% already, then \xspace. (need to include \usepackage{xspace})
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+
+\def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
+\def\ie{\emph{i.e}\onedot} \def\Ie{\emph{I.e}\onedot}
+\def\cf{\emph{c.f}\onedot} \def\Cf{\emph{C.f}\onedot}
+\def\etc{\emph{etc}\onedot} \def\vs{\emph{vs}\onedot}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\etal{\emph{et al}\onedot}
+\makeatother
+
+
+
+\begin{document}
+
+% Title.
+% ------
+\title{Translation-Invariant Scene Grouping}
+
+\author{\IEEEauthorblockN{Pin-Ching Su, Hwann-Tzong Chen}
+\IEEEauthorblockA{Department of Computer Science\\
+National Tsing Hua University, Taiwan}
+\and
+\IEEEauthorblockN{Koichi Ito, Takafumi Aoki}
+\IEEEauthorblockA{Graduate School of Information Sciences \\
+Tohoku University, Japan}}
+
+
+%\ninept
+%
+\maketitle
+%
+\begin{abstract}
+We present a new approach to the problem of grouping similar scene images. 
+The proposed method characterizes both the global feature layout and the local oriented edge responses of an image, and provides a translation-invariant similarity measure to compare scene images. Our method is effective in generating initial clustering results for applications that require extensive local-feature matching on unorganized image collections, such as large-scale 3D reconstruction and scene completion. The advantage of our method is that it can estimate image similarity via integrating global and local information.
+The experimental evaluations on various image datasets show that our method is able to approximate well the similarities derived from local-feature matching with a lower computational cost.
+\end{abstract}
+%
+\begin{keywords}
+Phase-Only Correlation, Scene Clustering, Image Matching, SIFT Descriptor, Gist Descriptor
+\end{keywords}
+%
+%% 
+%%
+\section{Introduction}
+
+The state-of-the-art structure-from-motion systems such as \cite{AgarwalFSCSS10}, \cite{SnavelyGSS08}, \cite{SnavelySS06}, \cite{SnavelySS08J}
+can model large-scale 3D structures using unorganized Internet photo collections. One of the key techniques that contribute to the success of those systems is SIFT~\cite{Lowe04} keypoint matching. The DoG-SIFT keypoint detector is invariant to scaling and rotation. It can be used to extract keypoints stably from various images. Furthermore, SIFT descriptors are distinct for matching, and therefore make the task of finding correspondences among images more robust. Other applications such as image completion from Internet photos~\cite{AmirshahiKIA08} might also rely on SIFT matching for finding initial candidates. However, matching SIFT keypoints in a large image dataset is time-consuming: Typically, a keypoint is represented by a $128$-dimensional SIFT descriptor, and an image may contain thousands of keypoints. Finding correspondences of keypoints among images would require a huge number of comparisons on all pairs of $128$-dimensional SIFT descriptors. 
+
+SIFT keypoints and descriptors are local features, and to alleviate the substantial computation of pairwise descriptor similarities, image representations that characterize global information can be used to find the initial clusters. SIFT matching can then be applied to only the images that belong to the same cluster, and thus the computational cost is reduced. For example, the `gist' descriptor~\cite{OlivaT01} is employed in \cite{LiWZLF08} to group similar views for 3D reconstruction. The scene completion algorithm presented in~\cite{HaysE08} also uses the gist descriptor to group similar scenes. The gist descriptor aggregates directional filter responses at multiple scales into coarse spatial bins, \eg a $4\times 4$ grid of bins. Although the gist descriptor can model the rough layout of edges and textureness in an image, it is not accurate enough to represent specific image contents. Moreover, if the translation between two images is larger than the width of spatial bin, the sum of squared differences between the gist descriptors of the two images will be very large. Translation has to be specifically handled when two scenes are compared by their gist descriptors, as is done in~\cite{SivicKTAF08}.
+
+We present a new method based on {\em phase-only correlation} (POC)~\cite{ItoNKAH04}, \cite{ItoNAKKK08}, \cite{MiyazawaIAKN08} for comparing and grouping images of similar views. The goal and contribution of our work is to show that the global and local information in a scene can be gracefully integrated by our design of image representation and similarity measure. Our method is able to provide more detailed global layout information of local features, and meanwhile, is translation-invariant owing to the good property of POC functions. Usually our method is about $30$ times faster than SIFT matching at computing the similarity matrix for clustering. The experimental evaluations based on nearest-neighbor recall rates also show that our method is more suitable than the gist descriptor for the task of deriving the initial clusters before performing exhaustive SIFT matching. 
+
+
+%%
+%%
+\section{Algorithm}
+
+Given a collection of photos of different landmarks, places, and scenes, we would like to divide automatically the photos into subsets of similar views. The photos may vary in lighting conditions and compositions, but we hope to associate each photo with other photos presenting similar views of the same scene. The key issue needed to be addressed would be the design of image representation and similarity measure. To begin with, we crop each photo to get a square image as the input. More specifically, since a photo can be either in `landscape' or `portrait' orientation, to obtain a consistent size for subsequent processing, we extract the central square area of which the side is set to $95\%$ of the shorter side of the given photo. We assume that the photos containing a similar view of a scene should all cover a certain portion of the scene at their central areas. This assumption is plausible because, in practice, the locations where the pictures can be taken are not arbitrary but somewhat restricted. Therefore, although the compositions may vary among photos, the photos of a scene often include similar views of some landmarks or main subjects. An example of photo cropping is shown in Fig.~\ref{fig:eecs_img}. The cropped photo is then converted to grayscale and resized to $256\times 256$ pixels, and is taken as the input image for the computation of feature responses.
+
+
+\begin{figure}
+\centering
+\fbox{
+\qquad
+\includegraphics[width=0.285\linewidth]{fig/eecs_ori.png} \quad
+\raisebox{0.5cm}{{\Huge $\Rightarrow$}} \quad
+\raisebox{0.10cm}{\includegraphics[width=0.16\linewidth]{fig/eecs.png}} 
+\qquad
+}
+\caption{An input image may be in `landscape' or `portrait' orientation, and so we crop it and keep only the central square area. The cropped image is then resized to produce a $256\times 256$-pixel grayscale image for feature extraction.}
+\label{fig:eecs_img}
+\end{figure}
+
+\subsection{Gabor Feature Pyramid}
+
+We use Gabor filters to compute low-level features in images. From an input image of $256\times 256$ pixels, we build a feature pyramid of three levels (scales), and each of the three levels comprises $8, 8, 4$ bands of different directional-filter responses, respectively. Let $\{F_{s,t}\}$ denote the pyramid, where the level is indexed by $s=1,\cdots,3$ and the band is indexed by $t=1,\cdots,8$ (or $t=1,\cdots,4$ for the last level). Hence totally we get $20$ filtered outputs. Each filtered output $F_{s,t}$ is then divided into $32\times 32$ spatial bins, and within each spatial bin we compute the average response. The $32\times 32$ spatial bins can thus be viewed as a $(32\times 32)$-pixel patch consisting of locally representative features. Consequently, from the three-level pyramid we build $20$ feature patches, denoted by $\{P_{s,t}\}$, where $s=1,\cdots,3$, and $t=1,\cdots,8$ or $t=1,\cdots,4$, depending on the level. Such a representation can handle local variations in image. 
+Fig.~\ref{fig:eecs_gabor} illustrates the feature patches $\{P_{s,t}\}$ of the input image in Fig.~\ref{fig:eecs_img}.
+
+
+\begin{figure}
+\centering
+\fbox{
+\includegraphics[width=0.94\linewidth]{fig/eecs_gabor.png} 
+}
+\caption{These $20$ feature patches $\{P_{s,t}\}$ are derived from the Gabor-feature pyramid of the input image shown in Fig.~\ref{fig:eecs_img}. The first subscript denotes the level of pyramid, and the second subscript is the index of band (orientation) at each level. Each feature patch contains $32\times 32$ average responses derived from $32\times 32$ spatial bins of each pyramid band. }
+\label{fig:eecs_gabor}
+\end{figure}
+
+
+\subsection{Phase-Only Correlation}
+
+The aforementioned representation is able to characterize local features at different scales. Changes in lighting condition or local variations caused by slight rotation, scaling, and translation can be well handled owing to the combination of Gabor feature pyramid and spatial binning. We will further use a robust similarity measure to deal with significant translation due to different photo composition.
+
+We employ the technique of {\em phase-only correlation} (POC)~\cite{ItoNKAH04}, \cite{ItoNAKKK08}, \cite{MiyazawaIAKN08} to compare two images by their feature patches. In particular, we use the {\em band-limited} POC function~\cite{ItoNKAH04} for our task. The advantage of POC functions is that they are shift-invariant and insensitive to variations in brightness and contrast. Furthermore, by using the band-limited POC function, we can eliminate meaningless high-frequency components and thus make the similarity measure more reliable. Also note that the maximum value of the correlation peak of the band-limited POC function is normalized to $1$, which is convenient for deriving a similarity score.
+
+
+Given the two sets of feature patches $\{P_{s,t}^{(1)}\}$ and $\{P_{s,t}^{(2)}\}$ of two input images, we use the band-limited POC function to compute the correlation between each pair of $P_{s,t}^{(1)}$ and $P_{s,t}^{(2)}$. Let $R_{s,t}$ denote the output of band-limited POC on $P_{s,t}^{(1)}$ and $P_{s,t}^{(2)}$. 
+
+The band-limited POC output $R_{s,t}$ is defined by
+\begin{equation}
+%\begin{split}
+R_{s,t}(m, n) = \frac{1}{(2K+1)^2} \sum_{k=-K}^K \sum_{l=-K}^K e^{j \Delta\theta(k,l)} 
+ \, e^{j \frac{2 \pi k m}{2K+1}}  e^{j \frac{2 \pi l n}{2K+1}}  \,,
+%\end{split}
+\end{equation}
+where $K$ is the effective range of frequency spectrum, and $\Delta\theta(k,l)$ denotes the phase difference between the 2D discrete Fourier transforms of $P_{s,t}^{(1)}$ and $P_{s,t}^{(2)}$. 
+
+As a result, we can obtain a set $\{R_{s,t}\}$ with $s=1,\cdots,3$ and $t=1,\cdots,8$ (or $t=1,\cdots,4$ for the last level). An example of $\{R_{s,t}\}$ is illustrated in Fig.~\ref{fig:eecs_comp}, where we compare the two images of the same building shown at the bottom row. If the two images to be compared are indeed highly correlated, then there should be a consensus among the outputs $\{R_{s,t}\}$ of band-limited POC. We assume that most of the $20$ outputs should have common characteristics, and hence we aggregate the outputs $\{R_{s,t}\}$ by taking location-wise average over $s, t$ to obtain
+$\hat{R} = \frac{1}{20} \sum_{s,t} R_{s,t}$.
+
+\begin{figure}
+\centering
+\fbox{
+\includegraphics[width=0.95\linewidth]{fig/eecs_comp.png} 
+}
+\caption{The outputs $\{R_{s,t}\}$ are produced by the band-limited POC function on the two sets of feature patches $\{P_{s,t}^{(1)}\}$ and $\{P_{s,t}^{(2)}\}$ of the two input images shown at the bottom row. We aggregate $\{R_{s,t}\}$ by taking location-wise average over $s, t$ and obtain $\hat{R}$. It can be seen that $\hat{R}$ contains a significant peak, and the location of the peak reflects the most significant translation between the two input images.}
+\label{fig:eecs_comp}
+\end{figure}
+
+
+\begin{figure*}[t]
+\centering
+\fbox{
+\begin{tabular}{@{\hspace{0.6cm}}c@{\hspace{0.6cm}}|@{\hspace{0.6cm}}c@{\hspace{0.6cm}}}
+\includegraphics[width=0.34\linewidth]{fig/f1.png} &
+\includegraphics[width=0.34\linewidth]{fig/f3.png} \\
+\hline 
+\includegraphics[width=0.34\linewidth]{fig/f6.png} &
+\includegraphics[width=0.34\linewidth]{fig/f7.png} \\
+\end{tabular}
+}
+\caption{More examples of comparing images by their feature patches using the band-limited POC function.}
+\label{fig:poc_more_examples}
+\end{figure*}
+
+An example of $\hat{R}$ is shown in Fig.~\ref{fig:eecs_comp}. It can be observed that $\hat{R}$ contains a significant peak, and the location of the peak corresponds to the most significant translation between the two images. Fig.~\ref{fig:poc_more_examples} illustrates more results of comparing images by the feature patches using the band-limited POC function. In our task of scene-based image clustering, we use the peak value of $\hat{R}$ as the similarity score for comparing any two input images.
+
+
+
+
+
+\subsection{Clustering}
+
+Given an image collection, we use the band-limited POC function to compute a similarity matrix on all pairs of images. Each element of the similarity matrix consists of the similarity score $\hat{R}$ between the corresponding pair of images. We may then apply some standard clustering algorithm such as k-means or spectral clustering to the similarity matrix, and obtain the clusters of similar scenes. In this work, we choose to use {\em affinity propagation}~\cite{FreyD05} for clustering. Affinity propagation is very efficient, and is also convenient to use in that the number of clusters can be automatically determined rather than being specified beforehand like k-means. Some example results of grouping $163$ images of $25$ different scenes are shown in Fig.~\ref{fig:clusters}.
+
+
+\begin{figure}
+\centering
+\fbox{
+%\begin{tabular}{@{}c@{\hspace{0.1cm}}c@{}}
+\begin{tabular}{@{}c@{}}
+\includegraphics[width=0.9\linewidth]{fig/c3.png} \\
+\hline
+\hline
+\includegraphics[width=0.9\linewidth]{fig/c7.png} \\
+\hline
+\hline
+\includegraphics[width=0.9\linewidth]{fig/c6.png} \\
+\hline
+\hline
+\includegraphics[width=0.9\linewidth]{fig/c8.png} \\
+\end{tabular}
+}
+\caption{Four of the clusters obtained by our method on a dataset containing $163$ images of $25$ different scenes (the {\sf NTHU} dataset).}
+\label{fig:clusters}
+\end{figure}
+
+
+\section{Evaluations}
+\label{sec:evaluations}
+
+Four datasets are used to evaluate the performance of our method: {\sf NTHU}, {\sf Golden Temple}, {\sf Colosseum Rome}, {\sf Trevi Fountain}. The {\sf NTHU} dataset is created by ourselves and the other three are downloaded from Flickr using their names as the search keywords. The size of each dataset is listed in Table~\ref{tab:timing}. Since the aim of our method is to provide initial clustering for narrowing down the search range of SIFT matching, we use the results of exhaustive SIFT matching on the whole dataset as the `ground truth'. 
+For SIFT, images are resized to $769\times 512$ pixels. We use Lowe's C implementation of SIFT~\cite{Lowe04} to do keypoint extraction and matching. The number of keypoints extracted in each image is around $700$ to $1200$. 
+We define the SIFT-based similarity score between two images as the number of matched keypoints found in the image pair. More matched keypoints being found implies that the two images are more similar.
+The timing results of computing the similarity matrices using SIFT matching and our band-limited POC matching are summarized in Table~\ref{tab:timing} (in boldface). It can be seen that extracting SIFT keypoints is fast but matching SIFT keypoints is very time-consuming. Our method is about $30$ times faster than SIFT matching at computing the similarity matrices. The experiments are done on a 2.8GHz PC. Note that our method currently is implemented in Matlab and the computation time may be further improved by C implementation. Figs.~\ref{fig:clusters_golden}-\ref{fig:clusters_trevi} show some more results of grouping the {\sf Golden Temple}, {\sf Colosseum Rome}, and  {\sf Trevi Fountain} datasets.
+
+
+\begin{figure}
+\centering
+\fbox{
+%\begin{tabular}{@{}c@{\hspace{0.1cm}}c@{}}
+\begin{tabular}{@{}c@{}}
+\includegraphics[width=0.9\linewidth]{fig/gc1.png} \\
+\hline
+\hline
+\includegraphics[width=0.3\linewidth]{fig/gc4.png} \\
+\hline
+\hline
+\includegraphics[width=0.9\linewidth]{fig/gc3.png} \\
+\hline
+\hline
+\includegraphics[width=0.55\linewidth]{fig/gc2.png} \\
+\end{tabular}
+}
+\caption{Four of the clusters obtained by our method on the {\sf Golden Temple} dataset.}
+\label{fig:clusters_golden}
+\end{figure}
+
+\begin{figure}
+\centering
+\fbox{
+%\begin{tabular}{@{}c@{\hspace{0.1cm}}c@{}}
+\begin{tabular}{@{}c@{}}
+\includegraphics[width=0.9\linewidth]{fig/cc1.png} \\
+\hline
+\hline
+\includegraphics[width=0.35\linewidth]{fig/cc2.png} \\
+\hline
+\hline
+\includegraphics[width=0.9\linewidth]{fig/cc3.png} \\
+\hline
+\hline
+\includegraphics[width=0.9\linewidth]{fig/cc4.png} \\
+\hline
+\hline
+\includegraphics[width=0.9\linewidth]{fig/cc5.png} \\
+\end{tabular}
+}
+\caption{Five of the clusters obtained by our method on the {\sf Colosseum Rome} dataset.}
+\label{fig:clusters_colosseum}
+\end{figure}
+
+\begin{figure}
+\centering
+\fbox{
+%\begin{tabular}{@{}c@{\hspace{0.1cm}}c@{}}
+\begin{tabular}{@{}c@{}}
+\includegraphics[width=0.94\linewidth]{fig/tc2.png} \\
+\hline
+\hline
+\includegraphics[width=0.94\linewidth]{fig/tc3.png} \\
+\hline
+\hline
+\includegraphics[width=0.94\linewidth]{fig/tc4.png} \\
+\hline
+\hline
+\includegraphics[width=0.94\linewidth]{fig/tc5.png} \\
+\hline
+\hline
+\includegraphics[width=0.94\linewidth]{fig/tc6.png} \\
+\hline
+\hline
+\includegraphics[width=0.94\linewidth]{fig/tc7.png} \\
+\end{tabular}
+}
+\caption{Six of the clusters obtained by our method on the {\sf Trevi Fountain} dataset.}
+\label{fig:clusters_trevi}
+\end{figure}
+
+Based on the similarity scores derived from exhaustive SIFT matching over the whole dataset (the `ground truth'), we may analyze the neighborhood of each image, and see if the neighborhood defined by our method is similar to the neighborhood defined by SIFT matching. More specifically,
+we evaluate the performance of our method by measuring the probability of observing {\em any of the $k'$-nearest neighbors suggested by SIFT} within {\em the $k$-nearest neighbors suggested by our method}. We call this probability the nearest-neighbor recall rate. 
+The evaluations of our method on the four datasets are illustrated in Fig.~\ref{fig:recall_rates} (red solid lines). For comparison, we also show in Fig.~\ref{fig:recall_rates} (blue dashed lines) the recall rates yielded by computing the similarities using the gist descriptor of $4\times 4$ spatial bins with $8,8,4$ orientations at three scales. 
+Although the gist descriptors are easy to compute and very fast to match (\eg, overall $150$ sec for {\sf Trevi Fountain}), its nearest-neighbor recall rates are not good. The results imply that the image neighborhoods obtained by our method are more consistent with SIFT. Our method is more suitable for initial clustering of SIFT matching as far as the recall rate is concerned.
+
+
+%%
+%%
+\section{Conclusion}
+
+We have presented a new method of computing image similarities for scene grouping. The proposed method incorporates an effective image representation that can model global and local features in an image, and the representation enables the use of phase-only correlation (POC) for measuring the similarity between two images. Owing to the shift-invariant property of POC functions, our method can well handle image translation. 
+It is clear that there is a trade-off between using local-feature matching for higher accuracy and using global representation for greater efficiency. Through the experimental evaluations, we have shown that our method provides a useful perspective on how to effectively integrate local and global information for matching and grouping scenes. 
+
+
+
+
+\begin{table*}[t]
+\centering
+\caption{The timing results of computing the similarity matrices using SIFT matching (Lowe's C implementation) and our band-limited POC matching (our Matlab implementation). Extracting SIFT keypoints is fast but matching SIFT keypoints is very time-consuming. Our method is about $30$ times faster than SIFT matching at computing the similarity matrices.}
+\begin{tabular}{|l||c||c|c||c|c|}
+\hline
+Dataset           	&    \# of images  &   SIFT extraction &   SIFT similarity & Gabor Filters & POC similarity\\
+\hline
+\hline 
+{\sf NTHU}          &     $163$      &     $61$ sec      &        $\mathbf{0.5}$ {\bf hr}      & $223$ sec & $\mathbf{93}$ {\bf sec}       \\
+\hline 
+{\sf Golden Temple} &     $226$      &     $113$ sec     &        $\mathbf{1.3}$ {\bf hr}      & $313$ sec & $\mathbf{180}$ {\bf sec}      \\
+\hline 
+{\sf Colosseum Rome}&     $267$      &     $130$ sec     &        $\mathbf{2.9}$ {\bf hr}      & $372$ sec & $\mathbf{251}$ {\bf sec}      \\
+\hline 
+{\sf Trevi Fountain}&     $623$      &     $318$ sec     &        $\mathbf{18}$ {\bf hr}       & $868$ sec & $\mathbf{1368}$ {\bf sec}        \\
+\hline
+\end{tabular}
+\label{tab:timing}
+\end{table*}
+
+\begin{figure*}[t]
+\centering
+\fbox{
+\begin{tabular}{@{\hspace{0.6cm}}c@{\hspace{0.8cm}}c@{\hspace{0.6cm}}}
+\includegraphics[width=0.42\linewidth, height=0.31\linewidth]{fig/nthu.png} &
+\includegraphics[width=0.42\linewidth, height=0.31\linewidth]{fig/golden_temple.png} \\
+\includegraphics[width=0.42\linewidth, height=0.31\linewidth]{fig/Colosseum_Rome.png} &
+\includegraphics[width=0.42\linewidth, height=0.31\linewidth]{fig/trevi_fountain.png} \\
+\end{tabular}
+}
+\caption{Nearest-neighbor recall rates of the four datasets. The results of our method are plotted as red solid lines, and the results of gist are plotted as blue dashed lines. Please see the description in Section~\ref{sec:evaluations} for the meanings of nearest-neighbor recall rates, $k'$, and $k$NN. Note that the {\sf Colosseum Rome} dataset is hard since it contains many ambiguous images of similar brick walls. }
+\label{fig:recall_rates}
+\end{figure*}
+
+
+{
+\vspace{0.5cm}
+\noindent {\bf Acknowledgment.} P.-C. Su and H.-T. Chen were supported in part by grants NTHU 100F2242EA and NSC 98-2221-E-007-083-MY3.
+}
+
+% References should be produced using the bibtex program from suitable
+% BiBTeX files (here: strings, refs, manuals). The IEEEbib.bst bibliography
+% style file from IEEE produces unsorted bibliography list.
+% -------------------------------------------------------------------------
+{
+\small
+\bibliographystyle{ieee}
+\bibliography{scene_clustering}
+}
+
+
+
+\end{document}
+
+
+

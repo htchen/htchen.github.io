@@ -1,0 +1,7 @@
+
+Speaker: Prof. Jyi-shane Liu
+
+Title: Applying Link Prediction to Ranking Candidates for High-Level Government Post
+
+Abstract:
+The main focus of this study is the computational evaluation of candidacy for an executive vacancy. We identified a new problem framework on bureaucratic promotion and proposed to tackle the problem with social network analysis that involved bipartite graph and link prediction. A bureaucratic career bipartite network model was developed to encode key information reflecting a candidate¡¦s service merit and the aggregated merit standards of an executive position. This allowed us to approximate merit measurement with node similarity. We implemented this candidacy evaluation approach and conducted experiments with data from Taiwan¡¦s bureaucratic career database. Empirical evaluation shows acceptable baseline performance and demonstrates feasibility of the link prediction approach to candidacy ranking. The results also seem to indicate that bureaucratic promotion for executive positions in Taiwan government is mostly a merit system, as opposed to at-will.

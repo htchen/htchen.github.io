@@ -1,0 +1,17 @@
+
+Topic:
+AI: Artificial Intelligence or Assisted Intelligence
+
+Abstract:
+A survey of AI with comparisons to human intelligence, 
+including automated reasoning, heuristic approaches, natural 
+language processing, etc.  Hope to gain some insight on some 
+directions of information management.
+
+Speaker:
+Dr. Paul Chi obtained his BS degree in mathematics from 
+National Taiwan University and his Ph.D. in computer science 
+from University of Maryland College Park. He worked as professor 
+in several universities in the states, China and Taipei.  
+His interests include induction and recursion; mathematics 
+and the board game Go.

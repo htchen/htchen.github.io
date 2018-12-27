@@ -1,0 +1,714 @@
+<HTML>
+<link href="composition.css" rel="stylesheet" type="text/css">
+<HEAD>
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+        <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">	
+	<TITLE>Finding Good Composition in Panoramic Scenes</TITLE>
+</HEAD>
+
+<BODY>
+<DIV class="body" align="justify" style="padding:1em; width:1000px; ">
+
+<div align="center">
+<h2> 
+	 Finding Good Composition in Panoramic Scenes
+</h2> 
+<h5> 
+Yuan-Yang Chang and <a href="http://www.cs.nthu.edu.tw/~htchen">Hwann-Tzong Chen</a><BR />
+Department of Computer Science, National Tsing Hua University<BR />
+Hsinchu, Taiwan
+</h5>
+</div>
+
+<dl> 
+<dt>
+<b>Poster</b>
+</dt>
+<dd>
+<a href="composition_poster.jpg"><IMG SRC="composition_poster_thumb.jpg" WIDTH="150"></a>
+</dd>
+</dl> 
+
+<br />
+<HR>
+<br />
+
+<h4>Evaluation Data for User Study</h4>
+
+The following are 626 sets of evaluation data for user study.<br />
+Each set contains three images (from left to right): 
+the randomly initialized view, the suggested view produced by our algorithm, and the referenced exemplar.
+<br />
+The exemplar collection consists of beautiful landscape and outdoor
+photos taken by professional photographers, including
+Ansel Adams, Jay Dickman, Peter Essick, and William
+Neill. 
+<br />
+<br />
+<br />
+<table width="1000" >
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initial view 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; suggested view 
+&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp; exemplar <br />
+</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;initial view 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; suggested view 
+&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp; exemplar <br />
+</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;initial view 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; suggested view 
+&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp; exemplar <br />
+</td>
+</tr>
+</table>
+<img src="images/[10.0017] 598613 (303,701).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.0054] 598613 (328,535).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.0127] 564640 (174,221).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.0154] 515410 (176,283).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.0156] 640517 (181,1666).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.0216] 576202 (233,1541).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.0421] 670425 (383,796).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.0427] 598601 (216,1098).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.0427] 671714 (267,791).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.0564] 648504 (237,1725).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.0712] 648504 (213,806).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.0739] 700005 (1092,2841).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.0816] 509585 (297,1208).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.0852] 610652 (184,1840).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.0878] 700003 (380,2526).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.0903] 675930 (268,2922).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.0932] 439769 (154,2275).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.1132] 675327 (359,425).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.1209] 700006 (251,503).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.1305] 700002 (206,536).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.1361] 564640 (297,609).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.1412] 637478 (347,1076).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.1446] 648504 (240,1713).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.1456] 401430 (343,936).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.1523] 509585 (322,447).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.1611] 585850 (176,476).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.1697] 696936 (195,1834).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.1714] 670425 (216,540).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.1717] 558348 (136,266).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.1815] 469362 (290,587).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.1977] 558092 (285,498).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.1994] 576202 (155,1784).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.2058] 564640 (272,400).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.2066] 680379 (339,2812).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.2401] 626603 (275,360).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.2657] 344785 (318,3894).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.271] 675327 (189,424).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.2803] 700005 (1048,4460).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.291] 344785 (143,889).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.2976] 693975 (149,1713).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.316] 435168 (230,1161).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.3247] 688123 (180,514).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.3428] 344785 (283,3298).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.3493] 700000 (145,821).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.3503] 655064 (211,658).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.3591] 341089 (222,487).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.3671] 637478 (284,897).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.3737] 526016 (312,4583).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.3757] 598601 (155,425).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.385] 649719 (151,527).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.3946] 603202 (261,877).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.4063] 695770 (206,2231).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.4149] 285647 (293,543).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.4448] 603202 (251,729).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.4451] 682400 (187,1006).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.4545] 603202 (243,506).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.4594] 692472 (174,972).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.4625] 700005 (669,2275).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.487] 555832 (258,490).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.491] 688123 (193,724).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.5007] 515410 (377,1517).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.5023] 672736 (173,1959).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.5085] 686059 (210,457).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.5088] 661581 (380,1741).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.5215] 688123 (297,851).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.5219] 580835 (282,1281).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.524] 695932 (136,159).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.5332] 439769 (270,2276).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.5443] 515410 (308,1394).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.5554] 599333 (151,1533).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.5592] 700005 (1105,745).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.5642] 526016 (256,3958).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.5653] 700000 (352,2915).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.5871] 700005 (679,1789).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.5901] 689340 (172,504).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.609] 598613 (290,1111).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.6244] 640169 (212,1271).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.6269] 568046 (378,1247).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.6357] 671714 (269,510).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.6418] 696936 (203,2489).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.6457] 344785 (300,3305).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.6535] 696936 (252,2773).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.6823] 655064 (299,722).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.6843] 435168 (307,244).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.6974] 580835 (164,1909).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.7238] 564640 (183,300).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.7239] 401430 (310,2079).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.7248] 602781 (259,1605).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.7286] 580835 (189,1358).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.7365] 648504 (300,2370).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.7585] 558348 (181,437).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.7635] 700003 (282,938).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.763] 700005 (649,2812).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.7708] 558348 (162,596).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.7839] 649719 (176,825).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.7961] 688123 (206,1533).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.7967] 655064 (170,448).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.8247] 610652 (255,509).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.8254] 585850 (184,614).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.8469] 655064 (204,270).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.8645] 285647 (168,1521).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.8808] 655064 (269,620).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.8859] 509585 (308,749).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.8959] 526016 (190,5114).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.9116] 695770 (239,1325).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.921] 675327 (241,2102).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.9292] 637478 (282,639).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.9704] 637478 (246,820).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[10.9744] 344785 (268,3824).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[10.9802] 568046 (64,2012).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.0045] 580835 (181,429).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.0235] 681843 (212,2021).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.0362] 688123 (167,1105).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.0574] 670425 (360,581).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.0587] 686059 (316,272).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.0693] 334820 (158,423).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.0798] 568046 (243,1020).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.0842] 655064 (283,163).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.1124] 700005 (673,1276).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.118] 401430 (305,1914).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.1424] 576202 (280,708).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.1441] 700001 (191,141).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.1929] 515410 (309,1568).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.2049] 700006 (169,136).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.2227] 439769 (201,2319).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.2255] 585850 (295,652).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.2444] 675248 (198,1200).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.2627] 401430 (208,1173).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.2684] 675327 (285,1113).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.2765] 637478 (285,853).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.2766] 695770 (287,453).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.3017] 469362 (209,1173).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.3371] 637478 (251,592).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.3486] 640169 (272,2464).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.3599] 576202 (235,915).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.3886] 680379 (287,2520).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.4198] 365253 (351,2882).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.4296] 700001 (162,605).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.4494] 365253 (277,2908).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.4576] 439769 (289,1729).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.4616] 580835 (280,2526).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.4718] 555832 (190,598).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.4745] 401430 (246,1645).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.477] 598613 (286,1015).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.5082] 439769 (206,2081).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.5122] 700001 (172,291).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.5358] 689340 (193,761).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.5475] 700001 (123,850).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.5839] 671714 (227,928).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.612] 344785 (271,1540).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.6202] 439769 (285,2341).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.6246] 692472 (252,1005).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.6316] 587912 (172,1054).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.6623] 637478 (266,484).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.685] 598613 (290,537).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.7034] 515410 (317,334).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.7073] 558348 (189,1002).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.7221] 576016 (164,705).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.733] 401430 (225,1104).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.7504] 598613 (282,576).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.7551] 671714 (231,564).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.7556] 435168 (307,225).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.7691] 626603 (293,743).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.7696] 515410 (235,571).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.7837] 341089 (194,743).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.7855] 695770 (189,1609).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.8101] 515410 (236,574).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.8441] 344785 (282,3985).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.9167] 675327 (324,2130).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.9193] 341089 (201,870).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[11.9535] 576202 (302,2008).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[11.9693] 285647 (304,1507).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.046] 626603 (289,1388).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.0508] 598613 (341,995).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[12.0782] 655064 (215,141).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.0932] 626603 (292,577).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.1164] 700004 (240,1845).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[12.1197] 587912 (161,982).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.1339] 700000 (250,1475).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.1728] 365253 (348,2900).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[12.1913] 344785 (253,2099).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.2287] 576202 (253,910).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.278] 401430 (242,1405).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[12.2792] 700001 (130,686).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.3375] 401430 (240,1409).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.3471] 598601 (156,2043).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[12.4069] 576202 (300,1771).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.4485] 626603 (318,1071).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.4644] 439769 (284,1216).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[12.4913] 587912 (164,716).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.4992] 344785 (206,3420).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.5036] 700001 (161,480).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[12.6655] 568046 (203,882).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.6762] 661581 (379,1274).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.7069] 568046 (173,345).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[12.7323] 334820 (294,1774).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.7424] 576202 (211,643).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.7686] 661581 (257,376).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[12.8795] 534868 (281,1098).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.8955] 558348 (182,812).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[12.9077] 401430 (175,636).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[13.0068] 626603 (303,1233).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[13.0922] 576202 (272,1534).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[13.2415] 675327 (270,1401).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[13.3031] 365253 (359,2330).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[13.3711] 401430 (267,1639).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[13.3765] 680379 (299,547).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[13.6559] 576202 (325,2340).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[13.6635] 681843 (322,430).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[13.7367] 401430 (252,2152).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[14.0947] 576202 (195,389).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[14.166] 365253 (323,2658).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[14.8305] 341089 (178,929).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[15.2987] 700001 (142,343).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[15.3351] 568046 (336,688).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[19.2564] 637478 (172,973).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[20.9418] 365253 (379,2294).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[21.329] 365253 (331,2265).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[21.5812] 365253 (340,1839).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[21.8685] 365253 (261,1562).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[21.9964] 365253 (281,528).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[22.174] 365253 (248,436).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[22.1992] 365253 (331,1954).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.0191] 640517 (353,1635).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.0285] 469362 (212,1850).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[6.0416] 603202 (203,1407).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.0542] 515410 (60,1495).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.0864] 640517 (379,856).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[6.1154] 515410 (95,826).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.1206] 550596 (134,2524).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.1218] 555832 (252,219).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[6.1739] 550596 (79,1962).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.2528] 469362 (372,2178).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.3343] 344785 (329,1460).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[6.3428] 672736 (309,1428).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.3815] 344785 (335,1475).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.512] 515410 (91,1326).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[6.6014] 599333 (186,616).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.62] 515410 (84,1336).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.679] 603202 (244,1114).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[6.7365] 515410 (124,365).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.8002] 344785 (314,2694).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.8714] 469362 (373,942).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[6.8877] 649301 (193,1385).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[6.9816] 576016 (265,988).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.0753] 603202 (230,1239).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.0773] 584151 (187,356).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.1131] 584151 (164,329).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.116] 469362 (248,1800).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.1573] 589628 (146,224).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.1766] 649301 (209,504).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.1808] 670425 (169,936).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.1936] 589628 (259,537).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.2557] 640169 (201,2559).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.2588] 700004 (408,1406).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.2618] 584151 (163,308).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.2658] 640169 (213,2183).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.2725] 424288 (332,1697).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.2856] 469362 (384,938).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.318] 344785 (321,4534).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.339] 700002 (322,950).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.3426] 550596 (220,536).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.3434] 599333 (133,772).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.3696] 689340 (305,1806).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.3798] 599333 (200,1086).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.382] 700004 (408,1600).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.3854] 344785 (317,4468).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.3904] 682400 (251,231).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.3965] 649301 (207,808).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.4039] 700005 (949,1790).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.4044] 550596 (276,1207).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.4382] 640517 (202,886).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.4868] 587912 (279,437).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.4881] 670425 (196,830).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.5061] 675930 (166,1985).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.5431] 584151 (237,618).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.5816] 424288 (204,1198).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.5861] 550596 (264,2285).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.5915] 700002 (353,1121).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.6027] 649301 (216,1977).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.6308] 424288 (216,1208).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.6542] 435168 (337,883).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.656] 675248 (266,1623).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.6575] 469362 (157,1672).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.659] 558092 (272,212).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.662] 589628 (261,1379).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.6815] 640517 (186,403).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.6912] 584151 (326,906).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.6933] 584151 (206,911).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.6941] 515410 (152,697).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.6954] 424288 (136,1477).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.6955] 610652 (208,1257).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.7244] 700004 (314,912).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.7659] 584151 (268,375).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.7784] 568046 (216,1043).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.7792] 640169 (231,727).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.7793] 551846 (135,1242).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.7887] 469362 (130,2145).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.8035] 558092 (218,995).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.8039] 285647 (208,1277).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.813] 424288 (241,1671).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.8504] 700002 (263,905).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.8555] 689340 (292,983).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.8666] 700004 (338,393).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.8702] 700000 (247,1123).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.8937] 660807 (239,704).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.9109] 700002 (317,557).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.9121] 640169 (279,1807).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.9136] 640517 (201,1158).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.9171] 660807 (345,1774).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.9178] 700002 (178,1120).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.9199] 435168 (284,470).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.9207] 640169 (343,380).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.9389] 424288 (236,1686).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.9548] 649301 (209,407).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[7.959] 576016 (323,537).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.9719] 640517 (208,710).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[7.998] 670425 (219,483).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.0059] 637478 (278,245).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.0238] 649719 (188,2242).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.0309] 648504 (250,420).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.0447] 688123 (324,286).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.0464] 700000 (312,2606).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.0509] 689340 (299,1189).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.0714] 640169 (233,963).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.0742] 686059 (173,1479).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.0875] 589628 (177,926).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.0903] 285647 (215,701).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.0953] 558092 (216,1060).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.1007] 682400 (261,514).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.1111] 686059 (105,1081).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.1198] 469362 (162,383).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.1249] 344785 (342,879).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.1264] 401430 (361,1656).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.1305] 700004 (297,2125).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.1308] 648504 (255,2675).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.1338] 626603 (180,938).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.1384] 700004 (397,1137).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.1417] 599333 (338,1870).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.1468] 585850 (203,1308).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.1584] 341089 (408,961).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.1651] 334820 (183,1326).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.1678] 672736 (221,1287).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.1685] 435168 (253,1332).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.1778] 649719 (203,1893).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.1867] 682400 (273,1082).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.2009] 660807 (326,265).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.2036] 515410 (395,1755).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.2122] 675930 (250,668).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.2287] 589628 (261,1153).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.2309] 558092 (251,931).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.2488] 675930 (230,1086).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.2499] 675248 (264,1076).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.2528] 688123 (279,1286).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.2622] 551846 (186,1634).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.2727] 692472 (162,1768).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.2871] 435168 (290,699).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.3157] 424288 (306,1914).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.3178] 649301 (308,608).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.3322] 670425 (182,993).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.3385] 469362 (174,435).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.3478] 469362 (194,617).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.3679] 568046 (215,1562).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.3691] 598601 (315,2056).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.3821] 695770 (283,852).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.3876] 515410 (171,1757).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.4031] 700003 (425,554).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.4049] 686059 (161,600).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.407] 640517 (198,1408).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.4082] 649301 (210,1014).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.4176] 534868 (242,529).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.4185] 700004 (399,1886).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.4198] 589628 (210,514).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.4305] 558092 (175,1192).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.4322] 344785 (333,4465).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.437] 693975 (263,879).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.446] 695770 (277,925).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.4577] 700004 (294,1098).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.4578] 673858 (312,1548).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.462] 648504 (317,2086).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.4697] 587912 (177,306).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.4701] 675930 (222,1089).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.4772] 675930 (226,2905).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.4954] 648504 (192,2459).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.4983] 515410 (156,1131).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5006] 675327 (193,633).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5046] 689340 (323,311).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.5107] 599333 (166,1873).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5114] 649301 (202,1223).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5119] 675930 (306,1976).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.513] 526016 (340,5168).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5179] 435168 (298,487).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5233] 675248 (284,1563).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.5243] 649719 (274,3010).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5371] 469362 (182,896).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5413] 435168 (268,916).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.5433] 637478 (223,706).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5456] 435168 (257,548).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5472] 649301 (263,841).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.5625] 599333 (145,1333).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5651] 700004 (338,2163).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5721] 610652 (303,1278).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.5743] 435168 (255,546).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5845] 469362 (165,1181).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.5968] 515410 (154,1114).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.5968] 682400 (219,714).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.6272] 689340 (215,1594).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.6307] 598613 (232,230).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.6318] 435168 (307,346).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.6433] 424288 (158,1895).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.644] 435168 (277,955).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.645] 649301 (293,1477).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.656] 509585 (260,1021).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.6577] 700004 (276,1354).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.663] 648504 (303,770).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.6659] 568046 (224,1741).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.6674] 673858 (320,1181).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.6691] 700006 (194,736).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.684] 675248 (182,940).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.6915] 341089 (274,514).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.6984] 580835 (232,1673).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.7001] 626603 (197,1098).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.7117] 439769 (349,751).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.7158] 534868 (192,814).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.7206] 689340 (276,679).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.7297] 589628 (240,1548).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.7317] 534868 (196,806).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.735] 558348 (391,769).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.7417] 681843 (349,697).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.7505] 589628 (275,720).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.7726] 558092 (188,222).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.783] 341089 (310,359).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.7943] 700004 (268,647).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.8018] 435168 (254,763).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.8057] 439769 (338,435).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.806] 598613 (241,239).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.823] 675248 (184,2028).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.8275] 515410 (169,902).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.8316] 401430 (337,2230).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.8403] 682400 (305,1400).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.8443] 649301 (221,1602).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.8462] 580835 (279,741).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.8493] 435168 (285,983).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.8554] 572005 (169,225).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.8574] 640169 (248,2146).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.8651] 660807 (310,433).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.8669] 682400 (261,846).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.884] 610652 (200,731).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.885] 648504 (190,2117).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.8986] 700006 (186,809).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.901] 580835 (169,939).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9067] 558348 (289,262).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9067] 682400 (317,1561).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.9078] 675248 (284,1264).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9128] 655064 (200,539).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9241] 526016 (196,879).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.9424] 558348 (224,1357).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9456] 640169 (222,1974).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9592] 285647 (195,890).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.9611] 692472 (186,1513).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9632] 515410 (340,872).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9725] 682400 (153,247).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.9743] 568046 (207,1310).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9773] 401430 (366,1628).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9842] 341089 (355,1116).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.9845] 341089 (304,192).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9845] 648504 (273,1095).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9848] 689340 (168,1457).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[8.9896] 673858 (235,299).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[8.9935] 439769 (355,942).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.0189] 576202 (241,2165).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.0243] 469362 (162,1432).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.0442] 401430 (336,1388).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.0797] 598601 (305,843).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.0805] 598601 (318,1508).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.0836] 564640 (202,494).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.0851] 671714 (319,571).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.0991] 649719 (212,2570).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.1027] 670425 (152,304).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.1054] 700003 (379,925).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.1068] 534868 (201,232).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.1204] 602781 (320,1307).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.1234] 602781 (328,575).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.1281] 401430 (333,929).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.1364] 700004 (275,1662).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.141] 589628 (140,1190).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.1525] 648504 (252,1135).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.1559] 689340 (244,1016).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.1731] 696936 (274,1830).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.1781] 700005 (1007,1287).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.178] 534868 (317,626).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.1808] 564640 (201,493).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.1958] 551846 (200,1105).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.197] 686059 (239,1388).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.2002] 640169 (311,1233).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.204] 696936 (289,795).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.211] 700006 (168,755).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.2178] 626603 (185,412).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.2211] 648504 (207,2672).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.2363] 580835 (263,2604).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.2373] 695770 (275,954).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.2393] 509585 (350,1284).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.2405] 675327 (198,1163).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.243] 401430 (289,1173).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.2471] 401430 (188,378).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.2478] 576016 (206,470).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.2648] 587912 (263,166).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.2659] 640169 (332,697).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.2724] 580835 (232,716).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.2755] 700003 (376,2295).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.2838] 534868 (159,361).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.2921] 689340 (190,1865).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.2988] 341089 (257,522).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.3005] 551846 (324,1677).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.3144] 564640 (327,196).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.3233] 675248 (173,716).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.3343] 700005 (1054,2283).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.3364] 681843 (173,1768).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.3394] 680379 (336,966).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.3552] 693975 (253,1952).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.3559] 626603 (293,919).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.355] 564640 (302,338).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.3591] 689340 (224,1173).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.3648] 401430 (287,1221).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.3678] 689340 (197,342).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.3739] 439769 (351,1538).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.4049] 640169 (206,457).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.4104] 401430 (184,398).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.411] 648504 (198,335).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.4159] 439769 (334,1277).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.4184] 693975 (199,319).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.4343] 603202 (284,268).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.4492] 469362 (152,1408).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.4506] 696936 (240,1511).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.4641] 576202 (277,1269).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.4685] 700000 (392,1817).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.4722] 693975 (284,569).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.4726] 515410 (330,845).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.481] 626603 (183,710).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.4881] 700001 (264,292).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.4922] 515410 (140,338).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.499] 598601 (189,1859).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5077] 693975 (196,571).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.5198] 564640 (335,228).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5219] 401430 (370,1980).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5289] 686059 (170,300).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.5303] 534868 (165,1169).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5342] 598601 (315,1338).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5368] 610652 (287,1835).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.5407] 700002 (188,693).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5436] 568046 (344,1755).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5476] 700004 (293,801).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.5498] 555832 (252,1072).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5548] 439769 (322,988).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5691] 598613 (307,890).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.5701] 534868 (172,1168).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5727] 587912 (230,465).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5747] 551846 (256,1079).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.5769] 648504 (246,1430).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5805] 696936 (263,553).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5862] 580835 (267,1677).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.5875] 469362 (262,411).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5995] 700006 (196,305).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.5999] 688123 (299,1157).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.6009] 341089 (235,1134).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.6177] 693975 (166,1450).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.6191] 526016 (147,3981).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.619] 285647 (281,346).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.6237] 695770 (317,633).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.651] 682400 (179,405).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.6637] 700004 (323,603).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.6681] 435168 (229,1106).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.6721] 509585 (308,1092).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.6729] 564640 (167,704).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.6766] 598613 (305,814).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.6836] 285647 (209,519).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.6844] 700002 (291,381).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.6866] 692472 (309,1794).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.6923] 341089 (278,695).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.6995] 675327 (350,883).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.6995] 696936 (164,2138).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.7017] 680379 (161,3255).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.7076] 580835 (269,1940).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.7084] 435168 (186,1295).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.7136] 688123 (213,1699).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.7142] 555832 (214,306).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.7166] 700006 (166,289).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.7273] 610652 (266,1497).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.7341] 469362 (255,422).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.7382] 580835 (206,2162).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.751] 564640 (207,622).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.7556] 587912 (226,431).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.7682] 515410 (265,1298).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.7734] 682400 (303,637).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.7743] 564640 (331,694).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.7758] 603202 (338,312).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.7809] 555832 (270,569).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.8029] 589628 (196,725).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.8033] 648504 (172,1465).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.8077] 555832 (246,920).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.8184] 558348 (178,1174).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.8351] 439769 (200,1409).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.8382] 439769 (292,2044).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.8489] 700005 (841,4208).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.8724] 602781 (310,1087).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.8912] 598601 (146,1025).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.8927] 610652 (224,468).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.9085] 700001 (246,698).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.9093] 568046 (200,598).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.9176] 526016 (357,2111).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.9287] 661581 (364,1052).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.9328] 688123 (178,308).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.935] 700000 (369,1173).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.9361] 695770 (199,1913).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.9366] 568046 (367,367).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.948] 655064 (148,922).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.9558] 576202 (265,419).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.9572] 610652 (184,2367).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.9584] 696936 (279,1141).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.95] 585850 (210,1092).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.9686] 344785 (285,3943).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.972] 344785 (298,949).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.972] 640517 (159,1992).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.9748] 526016 (354,933).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br /><img src="images/[9.9866] 551846 (267,720).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<img src="images/[9.9985] 680379 (327,2097).jpg" width="300"> &nbsp; &nbsp; &nbsp;
+<br />
+<br />
+
+The photographers, Jay Dickman, Peter Essick, and William
+Neill, own the copyright of their photos shown above.
+The photos by Ansel Adams are copyrighted to the Ansel Adams Publishing Rights Trust.
+<br />
+<br />
+
+
+
+<br />
+<hr>
+<br />
+Last updated: 12 January 2010
+
+
+</DIV>
+
+</BODY>
+</HTML>

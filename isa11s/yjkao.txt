@@ -1,0 +1,17 @@
+Ying-Jer Kao
+Associate Professor
+Department of Physics
+National Taiwan University
+
+
+Title: Application of graphic cards in computational physics
+
+Abstract: Recently, the graphic processing unit (GPU) has emerged as
+an important tool for scientific computing. In some cases, a GPU can
+speed up the computation by 10x to 100x, compared to a traditional
+CPU.  In this talk, I will briefly introduce the computation model of
+the latest generation of GPU, and discuss its applications in
+computational physics. In particular, I will use our recent work on
+tensor networks as an example, to discuss some generic problems
+involved in GPU computing.
+

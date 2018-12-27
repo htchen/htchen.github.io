@@ -1,0 +1,17 @@
+Human Activity Recognition for Intelligent Video Surveillance and Retrieval
+
+Professor Ming-Ting Sun
+Department of Electrical Engineering
+University of Washington
+
+Abstract:
+With the increasing accessibility of video surveillance camera and Internet video databases, it is useful to be able to automatically detect or find video clips containing certain activities of interest. In this talk, we will discuss some of our works related to automatic recognition of human activities for activity-based video retrieval and intelligent video surveillance applications. Specifically, for large-scale video surveillance systems, it is very desirable to be able to detect unusual events which lack training data, and detect hierarchical group activities with varying number of group members.  It is desirable that a system has the flexibility for users to add new events for automatic detection without needing to retrain the whole system.  It is also important that the systems have good detection accuracy.  We will discuss our research works on addressing these issues.  Experimental results show the effectiveness of the proposed approaches.
+
+Biography:
+Ming-Ting Sun received the B.S. degree from National Taiwan University, and the Ph.D. degree from University of California, Los Angeles, all in electrical engineering.  He joined the University of Washington in August 1996 where he is a Professor. Previously, he was the Director of the Video Signal Processing Research Group at Bellcore.  He holds 13 patents and has published over 200 technical papers, including 17 book chapters in the area of video technology.  He co-edited a book ¡§Compressed Video over Networks,¡¨ and was the Editor-in-Chief of the IEEE Transactions on Multimedia (TMM) and a Distinguished Lecturer of the Circuits and Systems Society from 2000 to 2001.  He received an IEEE CASS Golden Jubilee Medal in 2000, and was the general co-chair of the Visual Communications and Image Processing 2000 Conference.  He was the Editor-in-Chief of the IEEE Transactions on Circuits and Systems for Video Technology (TCSVT) from 1995 to 1997.  He received the TCSVT Best Paper Award in 1993.  From 1988 to 1991, he was the chairman of the IEEE CAS Standards Committee and established the IEEE Inverse Discrete Cosine Transform Standard.  He received an Award of Excellence from Bellcore for his work on the digital subscriber line in 1987.  Dr. Sun is a Fellow of the IEEE.
+
+
+
+
+ 
+

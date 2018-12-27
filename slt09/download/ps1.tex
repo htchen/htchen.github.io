@@ -1,0 +1,171 @@
+\documentclass[12pt,twoside]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\newcommand{\profs}{Hwann-Tzong Chen}
+\newcommand{\subj}{09810CS 565300}
+
+\newlength{\toppush}
+\setlength{\toppush}{2\headheight}
+\addtolength{\toppush}{\headsep}
+
+\newcommand{\htitle}[3]{\noindent\vspace*{-\toppush}\newline\parbox{6.5in}
+{\textit{09810CS 565300 -- Statistical Learning Theory}\hfill\newline
+National Tsing Hua University \hfill #3\newline
+\profs\hfill Assignment #1\vspace*{-.5ex}\newline
+\mbox{}\hrulefill\mbox{}}\vspace*{1ex}\mbox{}\newline
+\begin{center}{\Large\bf #2}\end{center}}
+
+\newcommand{\assignment}[3]{\thispagestyle{empty}
+\markboth{Assignment #1}{Assignment #1}
+\pagestyle{myheadings}\htitle{#1}{#2}{#3}}
+
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{0in}
+\setlength{\textheight}{8.5in}
+
+
+
+\begin{document}
+
+
+\assignment{1}{Assignment 1}{22 September 2009}
+\setlength{\parindent}{0pt}
+
+\newcommand{\solution}{
+  \medskip
+  {\bf Solution:}
+}
+
+This assignment is due {\bf Wednesday October 7} at {\bf 11:59PM}. 
+
+Solutions should be turned in through the assignment FTP site in PDF form.
+The name of the PDF file should be ps1\_YourStudentID, e.g., ``ps1\_9762578.pdf''.
+Your MATLAB code (with comments) should be included in the PDF file too.
+The FTP site is 140.114.71.2 port 1235. You can use the same ID and password of 
+the course website to login.
+\medskip
+
+\hrulefill
+
+\medskip
+
+\begin{enumerate}
+
+\item {\bf (20 points)} Matrix Derivatives (Bishop PRML, Appendix C).
+
+The derivatives of a scalar $a$ with respect to a vector $\mathbf{x}$ and a matrix $\mathbf{X}$ are defined by
+\[
+\left(\frac{\partial a}{\partial \mathbf{x}}\right)_i = \frac{\partial a}{\partial x_i}
+\]
+and
+\[
+\left(\frac{\partial a}{\partial \mathbf{X}}\right)_{ij} = \frac{\partial a}{\partial X_{ij}} \,,
+\]
+\noindent i.e., $\frac{\partial }{\partial \mathbf{x}} a$ is a vector whose $i$th component is $\frac{\partial }{\partial x_i} a$, and $\frac{\partial }{\partial \mathbf{X}} a$ is a matrix whose $(i,j)$ element is $\frac{\partial }{\partial X_{ij}} a$.
+
+(1) Show that
+\[
+\frac{\partial }{\partial \mathbf{x}} \left(\mathbf{x}^T\mathbf{a} \right) =
+\frac{\partial }{\partial \mathbf{x}} \left(\mathbf{a}^T\mathbf{x} \right) =
+\mathbf{a}
+\]
+\noindent by writing out the components.
+
+(2) Show that
+\[
+\frac{\partial }{\partial \mathbf{X}} \mathrm{Tr}\left(\mathbf{X}^T\mathbf{A}\mathbf{X} \right) =
+\left(\mathbf{A}+\mathbf{A}^T\right) \mathbf{X}
+\]
+\noindent by writing out the elements.
+
+
+\medskip
+%%%%%%%%%%%%%%%%%%%
+\medskip
+
+\item {\bf (10 points)} Kullback-Leibler Divergence between Two Gaussians (PRML (1.113), (2.43), Exercise 2.13).
+
+Evaluate the Kullback-Leibler divergence between two Gaussians $p(\mathbf{x})=\mathcal{N}(\mathbf{x}|\boldsymbol{\mu}_p, \boldsymbol{\Sigma}_p)$ and 
+$q(\mathbf{x})=\mathcal{N}(\mathbf{x}|\boldsymbol{\mu}_q, \boldsymbol{\Sigma}_q)$. 
+
+
+
+\medskip
+%%%%%%%%%%%%%%%%%%%
+\medskip
+
+\item {\bf (10 points)} Differential entropy (PRML (1.104), (2.43), Exercise 2.15).
+
+Show that the entropy of the multivariate Gaussian $\mathcal{N}(\mathbf{x}|\boldsymbol{\mu}, \boldsymbol{\Sigma})$ is given by 
+\[
+H[\mathbf{x}] = \frac{1}{2} \mathrm{ln} \left| \boldsymbol{\Sigma} \right| +\frac{D}{2} \left( 1 + \mathrm{ln}(2 \pi)  \right) \,,
+\]
+\noindent where $D$ is the dimensionality of $\mathbf{x}$.
+  
+  
+\medskip
+%%%%%%%%%%%%%%%%%%%
+\medskip
+
+\item {\bf (20 points)} Nonparametric Methods.
+
+Assume the data are obtained from some unknown probability density $p(\mathbf{x})$ in a D-dimensional Euclidean space. The probability mass with region $\mathcal{R}$ is
+\[
+P = \int_{\mathcal{R}} p(\mathbf{x}) d \mathbf{x} \,.
+\]
+ 
+Each data point has a probability $P$ of falling within $\mathcal{R}$. The total number $K$ of points inside $\mathcal{R}$ is a binomial distribution
+\[
+K \sim \mathrm{Bin}(K|N, P) = \frac{N!}{K!(N-K)!} P^K (1-P)^{N-K} \,.
+\]
+ 
+Show that $\mathbb{E}[K/N] = P$ and $\mathrm{var}[K/N] = P(1-P)/N$, and therefore, for large $N$, we have $K\cong NP$.
+ 
+
+
+\medskip
+%%%%%%%%%%%%%%%%%%%
+\medskip
+
+\item {\bf (10 points)} $1$-Nearest-Neighborhood in a High-Dimensional Space.
+
+Assume that $N$ data points are uniformly distributed in the unit cube $[-1/2, 1/2]^D$. Let $R_0$ denote the radius of a $1$-nearest neighborhood centered at the origin. Show that
+
+\[
+\mathrm{median}(R_0) = \rho_D^{-1/D} \left(1-\left(\frac{1}{2}\right)^{\frac{1}{N}} \right)^{1/D} \,,
+\]
+\noindent where $\rho_D \cdot r^D$ is the volume inside the sphere of radius $r$ in $D$ dimensions.
+
+
+
+
+\medskip
+%%%%%%%%%%%%%%%%%%%
+\medskip
+
+\item {\bf (30 points)} $K$-Nearest-Neighbor Classification (MATLAB).
+
+Please download the MNIST Handwritten Digits data from 
+\begin{verbatim}
+http://www.cs.toronto.edu/~roweis/data/mnist_all.mat
+\end{verbatim}
+After you load the .mat file in MATLAB, you will find 20 matrices containing 8-bit grayscale images of `0' through `9'. Each class has about $6,000$ training examples and $1,000$ test examples. Each image has been transformed into a column vector. For KNN classification, we prefer the data being stored in vector form, but you may `reshape' it back as a matrix of size $28\times 28$ if you want to see how the original image looks like. 
+For the convenience of computation, you may convert the data from {\tt uint8} into {\tt double}, and divide them by $255$ to make all components within $[0, 1]$.
+
+The task is to use the training data to predict the class of the test data based on the $K$-nearest-neighbor criterion (see the lecture notes). Occasionally a tie among different classes might occur, and the $K$-nearest-neighbor criterion could not be applied. You may create your own criteria for such situations.
+
+You need to do five-fold cross-validation on the training data to determine the parameter $K$.
+You may also try different distance functions, e.g., Manhattan distance, Euclidean distance, or other
+Minkowski distance with $p < 1$.
+
+Please write a simple MATLAB program to do the task and report the error rates of classification.
+
+\end{enumerate}
+
+
+
+\end{document}

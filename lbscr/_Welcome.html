@@ -1,0 +1,289 @@
+<HTML>
+<link href="lbscr.css" rel="stylesheet" type="text/css">
+<HEAD>
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+        <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">	
+	<TITLE>Landmark-Based Sparse Color Representations for Color Transfer</TITLE>
+</HEAD>
+
+<BODY>
+<DIV class="body" align="justify" style="padding:1em; width:740px; ">
+
+<div align="center">
+<h2> 
+	 Landmark-Based Sparse Color Representations for Color Transfer
+</h2> 
+<h5> 
+Tzu-Wei Huang and <a href="http://www.cs.nthu.edu.tw/~htchen">Hwann-Tzong Chen</a><BR />
+Department of Computer Science, National Tsing Hua University<BR />
+Hsinchu, Taiwan
+</h5>
+</div>
+
+<br />
+<br />
+<br />
+<dl>
+<dt>
+<b>Abstract</b>
+</dt>
+<dd>
+We present a novel image representation that characterizes a color image by an 
+intensity image and a small number of color pixels. 
+Our idea is based on solving an inverse problem of colorization: 
+Given a color image, we seek to obtain an intensity image and a small subset of 
+color pixels, which are called landmark pixels, so that the input color 
+image can be recovered faithfully using the intensity image and the color cues 
+provided by the selected landmark pixels.
+We develop an algorithm to derive the landmark-based sparse color 
+representations from color images, and use the representations in the 
+applications of color transfer and color correction. The computational 
+cost for these applications is low owing to the sparsity of the proposed 
+representation. The landmark-based representation is also preferable to 
+statistics-based representations, e.g., color histograms and Gaussian mixture 
+models, when we need to reconstruct the color image from a given representation.
+</dd>
+</dl>
+
+<div align="center">
+<table cellspacing="0" cellpadding="3" border="0" >
+<tr>
+<td><img src="image/app.png" height=180 border=0 /></td>
+</tr>
+</table>
+</div>
+
+
+<br />
+<HR>
+<br />
+
+
+<dl>
+<dt>
+<b>Selecting landmark pixels</b>
+</dt>
+<dd>
+The selection of landmark pixels is done iteratively.
+As can be seen in the following example, the reconstruction error (depicted 
+as the residue image) decreases during the process of selecting landmark pixels.
+</dd>
+</dl>
+<div align="center">
+<TABLE>
+	<TR>
+		<TH>&nbsp;&nbsp;&nbsp;
+			Input Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Landmark Pixels &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Recovered Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Residue Image
+		</TH>
+	</TR>
+	<TR>
+		<TH><IMG SRC="image/is_1.jpg" WIDTH="600"></TH>
+	</TR>
+	<TR>
+		<TH><IMG SRC="image/is_2.jpg" WIDTH="600"></TH>
+	</TR>
+	<TR>
+		<TH><IMG SRC="image/is_3.jpg" WIDTH="600"></TH>
+	</TR>
+	<TR>
+		<TH><IMG SRC="image/is_4.jpg" WIDTH="600"></TH>
+	</TR>
+	<TR>
+		<TH><IMG SRC="image/is_5.jpg" WIDTH="600"></TH>
+	</TR>
+	<TR>
+		<TH><IMG SRC="image/is_6.jpg" WIDTH="600"></TH>
+	</TR>	
+</TABLE>
+<div align="left">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&copy Jim Richardson</div>
+</div>
+
+<br />
+<br />
+
+<dl>
+<dt>
+<b>Effectiveness of the selected landmark pixels</b>
+</dt>
+<dd>
+In the following example, an image of size 400x300 pixels can be recovered faithfully using
+only a small number of color landmarks. The difference between the original image
+and the recovered image from 590 landmarks is hard to perceive.
+</dd>
+</dl>
+
+
+<div align="center">
+<table cellspacing="0" cellpadding="3" border="0" >
+
+<tr>
+<td>Original image of <br />400x300 pixels</td>
+<td>Recovered image using <br />156 landmark pixels</td>
+<td>Recovered image using <br />590 landmark pixels</td>
+</tr>
+
+<tr>
+<td><IMG SRC="image/400x300.png" WIDTH="240"></td>
+<td><IMG SRC="image/recov_156.png"  WIDTH="240"></td>
+<td><IMG SRC="image/recov_590.png"  WIDTH="240"></td>
+</tr>
+
+</table>
+</div>
+
+<br />
+<HR>
+<br />
+
+
+<dl>
+<dt>
+<b>Results of color transfer</b>
+</dt>
+<dd>
+Given an input image and a reference image, we wish to adjust the input
+image’s color based on the color characteristics of the reference
+image. The color of each landmark
+pixel in the input image is modified according to the color in the reference image.
+We then combine the modified landmark pixels with the intensity of
+the input image, and perform colorization to produce the
+resulting color image.
+</dd>
+</dl>
+
+<div align="center">
+<table cellspacing="0" cellpadding="3" border="0" >
+
+<tr>
+<td>Reference image</td>
+<td>Input image</td>
+<td>Color transfer output</td>
+</tr>
+<tr>
+<td><IMG SRC="image/p11.jpg" HEIGHT="150" WIDTH="220"><br />&copy Jim Richardson</td>
+<td><IMG SRC="image/p10.jpg" HEIGHT="150" WIDTH="220"><br />&copy Ed Kashi</td>
+<td><IMG SRC="image/res_p11_p10.jpg" HEIGHT="150" WIDTH="220"></td>
+</tr>
+
+<tr>
+<td>Reference image</td>
+<td>Input image</td>
+<td>Color transfer output</td>
+</tr>
+<tr>
+<td><IMG SRC="image/p1.jpg" HEIGHT="150" WIDTH="220"><br />&copy William Albert Allard</td>
+<td><IMG SRC="image/p4.jpg" HEIGHT="150" WIDTH="220"><br />&copy Michael Hipple</td>
+<td><IMG SRC="image/res_p1_p4.jpg" HEIGHT="150" WIDTH="220"></td>
+</tr>
+
+
+
+
+<tr>
+<td>Reference image</td>
+<td>Input image</td>
+<td>Color transfer output</td>
+</tr>
+<tr>
+<td><IMG SRC="image/ct1_1.jpg" HEIGHT="150" WIDTH="220"></td>
+<td><IMG SRC="image/ct1_2.jpg" HEIGHT="150" WIDTH="220"></td>
+<td><IMG SRC="image/ct1_4.jpg" HEIGHT="150" WIDTH="220"></td>
+</tr>
+
+
+
+<tr>
+<td>Reference image</td>
+<td>Input image</td>
+<td>Color transfer output</td>
+</tr>
+<tr>
+<td><IMG SRC="image/ct4_1.jpg" HEIGHT="150" WIDTH="220"></td>
+<td><IMG SRC="image/ct4_2.jpg" HEIGHT="150" WIDTH="220"></td>
+<td><IMG SRC="image/ct4_3.jpg" HEIGHT="150" WIDTH="220"></td>
+</tr>
+
+<tr>
+<td>Reference image</td>
+<td>Input image</td>
+<td>Color transfer output</td>
+</tr>
+<tr>
+<td><IMG SRC="image/ct5_1.png" HEIGHT="150" WIDTH="220"></td>
+<td><IMG SRC="image/ct5_2.jpg" HEIGHT="150" WIDTH="220"></td>
+<td><IMG SRC="image/ct5_3.jpg" HEIGHT="150" WIDTH="220"></td>
+</tr>
+
+</table>
+</div>
+
+<br />
+<HR>
+<br />
+
+
+
+<dl>
+<dt>
+<b>Results of color correction</b>
+</dt>
+<dd>
+	The color landmarks extracted from the blurry image are superimposed onto the 
+under-exposed image.
+We use the enhanced intensity of the under-exposed image plus the color landmarks from 
+the blurry image to do colorization and obtain the output image.
+
+</dd>
+</dl>
+
+<div align="center">
+<table cellspacing="0" cellpadding="3" border="0" >
+
+<tr>
+<td>Correct color but blurred</td>
+<td>Under-exposed</td>
+<td>Output</td>
+</tr>
+<tr>
+<td><IMG SRC="image/cc1_2.png" WIDTH="230"></td>
+<td><IMG SRC="image/cc1_1.png" WIDTH="230"></td>
+<td><IMG SRC="image/cc1_3.png" WIDTH="230"></td>
+</tr>
+
+<tr>
+<td>Correct color but blurred</td>
+<td>Under-exposed</td>
+<td>Output</td>
+</tr>
+<tr>
+<td><IMG SRC="image/cc2_2.png" WIDTH="230"></td>
+<td><IMG SRC="image/cc2_1.png" WIDTH="230"></td>
+<td><IMG SRC="image/cc2_3.png" WIDTH="230"></td>
+</tr>
+
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+<br />
+<hr>
+<br />
+Last updated: 28 January 2010
+
+
+</DIV>
+
+</BODY>
+</HTML>

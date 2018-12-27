@@ -1,0 +1,108 @@
+http://books.nips.cc/nips22.html
+
+
+Unsupervised Detection of Regions of Interest Using Iterative Link Analysis
+G. Kim, A. Torralba
+
+The "tree-dependent components" of natural scenes are edge filters
+D. Zoran, Y. Weiss
+
+Structured output regression for detection with partial truncation
+A. Vedaldi, A. Zisserman
+
+Speaker Comparison with Inner Product Discriminant Functions
+W. Campbell, Z. Karam, D. Sturim
+
+Semi-Supervised Learning in Gigantic Image Collections
+R. Fergus, Y. Weiss, A. Torralba
+
+Segmenting Scenes by Matching Image Composites
+B. Russell, A. Efros, J. Sivic, B. Freeman, A. Zisserman
+
+Robust Principal Component Analysis: Exact Recovery of Corrupted Low-Rank Matrices via Convex Optimization
+J. Wright, A. Balasubramanian, S. Rao, Y. Peng, Y. Ma
+
+
+Region-based Segmentation and Object Detection
+S. Gould, T. Gao, D. Koller
+
+
+Rank-Approximate Nearest Neighbor Search: Retaining Meaning and Speed in High Dimensions
+P. Ram, D. Lee, H. Ouyang, A. Gray
+
+
+Positive Semidefinite Metric Learning with Boosting
+C. Shen, J. Kim, L. Wang, A. van den Hengel
+
+
+A Bayesian Model for Simultaneous Image Clustering, Annotation and Object Segmentation
+L. Du, L. Ren, D. Dunson, L. Carin
+
+
+A Biologically Plausible Model for Rapid Natural Scene Identification
+S. Ghebreab, H. Steven, V. Lamme, A. Smeulders
+
+
+
+Perceptual Multistability as Markov Chain Monte Carlo Inference
+S. Gershman, E. Vul, J. Tenenbaum
+
+On the Algorithmics and Applications of a Mixed-norm based Kernel Learning Formulation
+S. Jagarlapudi, d. govindaraj, R. S, C. Bhattacharyya, A. Ben-Tal, K. Ramakrishnan
+
+On Learning Rotations
+R. Arora
+
+
+Occlusive Components Analysis
+J. Lucke, R. Turner, M. Sahani, M. Henniges
+
+
+Nonparametric Bayesian Texture Learning and Synthesis
+L. Zhu, Y. Chen, B. Freeman, A. Torralba
+
+
+Modelling Relational Data using Bayesian Clustered Tensor Factorization
+I. Sutskever, R. Salakhutdinov, J. Tenenbaum
+
+Learning to Hash with Binary Reconstructive Embeddings
+B. Kulis, T. Darrell
+
+
+Learning Label Embeddings for Nearest-Neighbor Multi-class Classification with an Application to Speech Recognition
+N. Singh-Miller, M. Collins
+
+Fast Image Deconvolution using Hyper-Laplacian Priors
+D. Krishnan, R. Fergus
+
+Efficient Match Kernel between Sets of Features for Visual Recognition
+L. Bo, C. Sminchisescu
+
+Efficient Bregman Range Search
+L. Cayton
+
+Distribution Matching for Transduction
+N. Quadrianto, J. Petterson, A. Smola
+
+Directed Regression
+Y. Kao, B. Van Roy, X. Yan
+
+Bilinear classifiers for visual recognition
+H. Pirsiavash, D. Ramanan, C. Fowlkes
+
+A Sparse Non-Parametric Approach for Single Channel Separation of Known Sounds
+P. Smaragdis, M. Shashanka, B. Raj
+
+An Online Algorithm for Large Scale Image Similarity Learning
+G. Chechik, U. Shalit, V. Sharma, S. Bengio
+
+A General Projection Property for Distribution Families
+Y. Yu, Y. Li, D. Schuurmans, C. Szepesvari
+
+
+
+
+
+
+
+
