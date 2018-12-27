@@ -1,0 +1,97 @@
+<HTML>
+<link href="reh.css" rel="stylesheet" type="text/css">
+<HEAD>
+	<TITLE>Random Exemplar Hashing</TITLE>
+</HEAD>
+<BODY>
+<div class="body" align="justify" style="padding:1em; width:740px; ">
+<div align="center">
+<h2>
+Random Exemplar Hashing	
+</h2>
+<h5>
+Tao-Yen Tang, Tzu-Wei Huang, and <a href="http://www.cs.nthu.edu.tw/~htchen">Hwann-Tzong Chen</a> 
+</h5>
+</div>
+<br />
+<br />
+
+<div>
+<dl>
+<dt>
+<b>Abstract</b>
+</dt>
+<dd>
+We present a new method that addresses the problem of approximate nearest neighbor search via partitioning the feature space. The proposed <i>random exemplar hashing</i> algorithm can be used to generate binary codes of data to facilitate nearest neighbor search within large datasets. 
+Inspired by the idea of using an ensemble of classifiers for discriminative learning, we devise an unsupervised learning algorithm to explore the feature space with respect to randomly selected exemplars. 
+Experimental results on three large datasets show that our method outperforms the state-of-the-art, especially on the cases of longer binary codes.
+</dd>
+</dl>
+   
+<div>
+<dl>
+<dt>
+<a name="paper"></a>
+<b>Paper</b>
+</dt>
+<dd>Tao-Yen Tang, Tzu-Wei Huang, and Hwann-Tzong Chen: <a href="reh.pdf">Random Exemplar Hashing</a>. DDS 2013. 
+</dd>
+<dt>
+<a name="code"></a>
+<b>Code</b>
+</dt>
+<dd> 
+<a href="https://drive.google.com/file/d/0B5mg7kx3ki6uVnpJbUNEamN6cFk/view?usp=sharing">Download Matlab implementation</a>
+<br />
+Run 'demo.m' in Matlab<br />
+It takes about one minute to train and generate hash codes for the first time.
+<br />
+Hit 'Enter' after training or run 'demo.m' again to try random queries.
+<br />
+<br />
+Required data and tools: <br />
+1.
+<a href=" http://www.cs.toronto.edu/~kriz/cifar.html">
+CIFAR 100 dataset</a>
+<br />
+[Ref]
+"Learning multiple layers of features from tiny images",
+Alex Krizhevsky, 2009.
+<br />
+<br />
+2.
+<a href="http://people.csail.mit.edu/torralba/code/spatialenvelope/">
+Matlab code for generating Gist descriptors
+</a>
+<br />
+[Ref]
+"Modeling the shape of the scene: a holistic representation of the spatial envelope",
+Aude Oliva, Antonio Torralba, IJCV, Vol. 42(3): 145-175, 2001.
+<br />
+<br />
+3.
+<a href=" http://www.csie.ntu.edu.tw/~cjlin/libsvm/">LIBSVM</a>
+<br />
+[Ref]
+"LIBSVM : a library for support vector machines",
+C.-C. Chang and C.-J. Lin.
+ACM Transactions on Intelligent Systems and Technology, 2:27:1--27:27, 2011.
+<br />
+<br />
+4.
+<a href="http://www.mathworks.com/matlabcentral/fileexchange/3696-subaxis-subplot">
+Matlab code 'subaxis' for subplot
+</a>
+<br />
+</dd>
+</dl>
+
+</div>
+
+<hr>
+Last updated: 07 November 2013
+
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,126 @@
+<HTML>
+<link href="hipd.css" rel="stylesheet" type="text/css">
+<HEAD>
+	<TITLE>Histogram-based Interest Points Detectors</TITLE>
+</HEAD>
+<BODY>
+<div class="body" align="justify" style="padding:1em; width:740px; ">
+<div align="center">
+<h2> 
+	 Histogram-based Interest Points Detectors
+</h2> 
+<h5> 
+Wei-Ting Lee &nbsp;&nbsp;  <a href="http://www.cs.nthu.edu.tw/~htchen">Hwann-Tzong Chen</a><br />
+</h5>
+</div>
+
+<br />
+<br />
+
+<div align="center">
+<table cellspacing="0" cellpadding="3" border="0" >
+<tr>
+<td><img src="image/ip1.jpg" height=90 border=0 /></td>
+<td><img src="image/ip2.jpg" height=90 border=0 /></td>
+<td><img src="image/ip3.jpg" height=90 border=0 /></td>
+<td><img src="image/ip4.jpg" height=90 border=0 /></td>
+<td><img src="image/ip5.jpg" height=90 border=0 /></td>
+<td><img src="image/ip6.jpg" height=90 border=0 /></td>
+</tr>
+</table>
+</div>
+
+<br />
+<br />
+
+<div>
+<dl>
+<dt>
+<b>Abstract</b>
+</dt>
+<dd>
+We present a new method for detecting interest points using histogram information.
+Unlike existing interest point detectors, which measure pixel-wise differences in image intensity,
+our detectors incorporate histogram-based representations, and thus can find image regions that
+present a distinct distribution in the neighborhood. The proposed detectors are able to capture 
+large-scale structures and distinctive textured patterns, and exhibit strong invariance to rotation, 
+illumination variation, and blur. The experimental results show that the proposed histogram-based interest
+point detectors perform particularly well for the tasks of matching textured scenes under blur and illumination
+changes, in terms of repeatability and distinctiveness. An extension of our method to space-time interest
+point detection for action classification is also presented.
+</dd>
+</dl>
+
+<dl>
+<dt>
+Image matching
+</dt>
+<dd>
+The proposed detectors achieve good performance for the tasks of matching textured scenes, e.g., the 'wall' sequence and the 'trees' sequence shown below (click to enlarge). The performance is evaluated by the repeatability and the matching score, using the <a href="http://www.robots.ox.ac.uk/~vgg/research/affine/">code and datasets</a> created by <i>Mikolajczyk et al.</i>. The black lines are the results of the color-histogram detector; the red lines are obtained by the oriented-gradient-histogram detector. More evaluation results can be found in our <a href="http://www.cs.nthu.edu.tw/~htchen/hipd_cvpr09.pdf">paper</a>.
+</dd>
+</dl>
+<div align="center">
+<table cellspacing="7" cellpadding="7" border="0" >
+<tr>
+<td><a href="image/wall.png"><img src="image/wall.png" width=680 border=0 /></a></td>
+</tr>
+<tr>
+<td><a href="image/trees.png"><img src="image/trees.png" width=680 border=0 /></a></td>
+</tr>
+</table>
+</div>
+
+
+<dl>
+<dt>
+Action classification with space-time histogram-based interest points
+</dt>
+<dd>
+We extend the histogram-based method to the detection of space-time interest points, and apply the detector to action classification. We use the <a href="http://www.wisdom.weizmann.ac.il/~vision/SpaceTimeActions.html">human action database</a> provided by <i>Gorelick et al.</i> for evaluation. The database contains ten types of actions, and  for each action we use nine videos of the same action performed by different people. We ignore the silhouette information since our method does not assume a known background. The result of leave-one-out test is shown below in the confusion matrix.
+</dd>
+</dl>
+
+<div align="center">
+<table cellspacing="0" cellpadding="3" border="0" >
+<tr>
+<td><a href="image/stip1.png"><img src="image/stip1.png" height=120 border=0 /></a></td>
+<td><a href="image/stip2.png"><img src="image/stip2.png" height=120 border=0 /></a></td>
+</tr>
+<tr>
+<td><a href="image/action_confusion.png"><img src="image/action_confusion.png" height=220 border=0 /></a></td>
+<td>(Click to enlarge)</td>
+</tr>
+</table>
+</div>
+
+</div>
+
+<br />
+<br />
+
+<div>
+<dl>
+<dt>
+<a name="paper"></a>
+<b>Paper</b>
+</dt>
+<dd>Wei-Ting Lee, Hwann-Tzong Chen: <a href="http://www.cs.nthu.edu.tw/~htchen/hipd_cvpr09.pdf">Histogram-based Interest Point Detectors</a>. CVPR 2009. 
+</dd>
+</dl>
+
+
+<dl>
+<dt>
+<b>Code</b>
+</dt>
+<dd><a href="hist_corner.zip">Here is a Matlab implementation</a> of the histogram-based interest point detectors. The detectors can be plugged into the <a href="http://www.robots.ox.ac.uk/~vgg/research/affine/evaluation.html#eval_soft">evaluation code</a> provided by <i>Mikolajczyk et al.</i> to compute the repeatability and the matching score of image matching.</dd>
+</dl>
+</div>
+
+<hr>
+Last updated: 14 August 2009
+
+</div>
+
+</BODY>
+</HTML>
